@@ -1,0 +1,6 @@
+---
+name: TickTackCore
+main: xtakumatutix\ticktack\Core
+version: 1.2.0
+api: 3.15.0
+...
