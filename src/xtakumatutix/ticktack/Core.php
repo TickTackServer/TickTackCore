@@ -3,9 +3,9 @@
 namespace xtakumatutix\ticktack;
 
 use pocketmine\plugin\PluginBase;
+use pocketmine\Server;
 use xtakumatutix\ticktack\command\CommandMap;
 use xtakumatutix\ticktack\event\EventManager;
-use onebone\economyapi\EconomyAPI;
 
 class Core extends PluginBase
 {
@@ -13,6 +13,7 @@ class Core extends PluginBase
     {
         EventManager::registerEvents($this);
         CommandMap::registerCommands();
+        Server::getInstance()->getNetWork()->setName('§bTick §bTack§e!!§r');
         $this->getLogger()->notice("
  _______  _        _     _______               _\n
 |__   __|(_)      | |   |__   __|             | |\n
