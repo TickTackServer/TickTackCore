@@ -11,6 +11,11 @@ class Core extends PluginBase
 {
     public function onEnable()
     {
+        if ($this->getServer()->getPluginManager()->getPlugin("EconomyAPI") == null){
+            $this->getLogger()->warning("EconomyAPIを導入してください。TickTackCoreを停止致します。");
+            $this->getServer()->getPluginManager()->disablePlugin($this);
+        }
+        return true;
         EventManager::registerEvents($this);
         CommandMap::registerCommands();
         Server::getInstance()->getNetWork()->setName('§bTick §bTack§e!!§r');
