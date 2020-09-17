@@ -6,6 +6,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use xtakumatutix\ticktack\command\CommandMap;
 use xtakumatutix\ticktack\event\EventManager;
+use xtakumatutix\ticktack\task\StatusTask;
 
 class Core extends PluginBase
 {
@@ -16,8 +17,15 @@ class Core extends PluginBase
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return true;
         }
+        if ($this->getServer()->getPluginManager()->getPlugin("EasyScoreboardAPI") == null){
+            $this->getLogger()->warning("EasyScoreboardAPIを導入してください。TickTackCoreを停止致します。");
+            $this->getServer()->getPluginManager()->disablePlugin($this);
+            return true;
+        }
+        date_default_timezone_set('Asia/Tokyo');
         EventManager::registerEvents($this);
         CommandMap::registerCommands();
+        $this->getScheduler()->scheduleRepeatingTask(new StatusTask($this), 20);
         Server::getInstance()->getNetWork()->setName('§bTick §bTack§e!!§r');
         $this->getLogger()->notice("
  _______  _        _     _______               _\n
