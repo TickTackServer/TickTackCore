@@ -7,7 +7,7 @@ use pocketmine\event\player\PlayerDeathEvent;
 
 class DeathEvent implements Listener
 {
-    public function onjoin(PlayerDeathEvent $event)
+    public function ondeath(PlayerDeathEvent $event)
     {
         $player = $event->getPlayer();
         $event->setDeathMessage('§bINFO §f>> '.$player->getName().'が死亡しました');

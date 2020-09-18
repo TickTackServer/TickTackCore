@@ -12,8 +12,8 @@ class DamageEvent implements Listener
     {
         $entity = $event->getDamager();
         if ($entity instanceof Player) {
-            $kakuritu = mt_rand(1, 10);
-            if ($kakuritu == 1) {
+            $probability = mt_rand(1, 10);
+            if ($probability == 1) {
                 if ($entity->getInventory()->getItemInHand()->getId() == 50) {
                     $damager = $event->getEntity();
                     if ($damager instanceof Player) {
