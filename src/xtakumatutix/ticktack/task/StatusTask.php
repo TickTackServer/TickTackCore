@@ -22,10 +22,12 @@ class StatusTask extends Task{
             $id = $item->getId();
             $damage = $item->getDamage();
             $ping = $player->getPing();
-            $cloor = mt_rand(0, 9);
-            
+            $cloor = ['a','b','c','d','e',1,2,3,4,5,6,7,8,9];
+            $cloor2 = mt_rand(0, 13);
+            $cloor3 = "{$cloor[$cloor2]}";
             $api = EasyScoreboardAPI::getInstance();
-            $api->sendScoreBoard($player, "sidebar", "§".$cloor."TickTack!!", false);
+
+            $api->sendScoreBoard($player, "sidebar", "§".$cloor3."TickTack!!", false);
             $api->setScore($player, "sidebar", "§b今日は、§f".$time."§bです", 0 , 0);
             $api->setScore($player, "sidebar", "§a座標 §f>> ".$x.",".$y.",".$z." ".$level, 1 , 1);
             $api->setScore($player, "sidebar", "§e所持金 §f>> ".$money."§e円", 2 , 2);
