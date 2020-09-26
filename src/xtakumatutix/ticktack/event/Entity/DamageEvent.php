@@ -2,13 +2,22 @@
 
 namespace xtakumatutix\ticktack\event\Entity;
 
+use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\Player;
 
 class DamageEvent implements Listener
 {
-    public function onDamage(EntityDamageByEntityEvent $event)
+    public function Fall(EntityDamageEvent $event)
+    {
+        $cause = $event->getCause();
+        if ($cause == 4) {
+            $event->setCancelled();
+        }
+    }
+
+    public function Fire(EntityDamageByEntityEvent $event)
     {
         $entity = $event->getDamager();
         if ($entity instanceof Player) {
