@@ -12,5 +12,6 @@ class CommandMap
     public static function registerCommands()
     {
         Server::getInstance()->getCommandMap()->register(self::plugin,new shopCommand());
+        Server::getInstance()->getCommandMap()->register(self::plugin,new coreCommand());
     }
 }
