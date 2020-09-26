@@ -24,12 +24,12 @@ class StatusTask extends Task{
             $ping = $player->getPing();
 
             $api = EasyScoreboardAPI::getInstance();
-            $api->sendScoreBoard($player, "sidebar", "§fTickTack!!", false);
+            $api->sendScoreBoard($player, "sidebar", "§gTickTack!!", false);
             $api->setScore($player, "sidebar", "§b今日は、§f".$time."§bです", 0 , 0);
-            $api->setScore($player, "sidebar", "§a座標 > §f".$x.",".$y.",".$z." ".$level, 1 , 1);
-            $api->setScore($player, "sidebar", "§e所持金 > §f".$money."§e円", 2 , 2);
-            $api->setScore($player, "sidebar", "§dPing値 > §f".$ping, 3 , 3);
-            $api->setScore($player, "sidebar", "§cアイテムID > §f".$id.":".$damage, 4 , 4);
+            $api->setScore($player, "sidebar", "§a座標 §f>> ".$x.",".$y.",".$z." ".$level, 1 , 1);
+            $api->setScore($player, "sidebar", "§e所持金 §f>> ".$money."§e円", 2 , 2);
+            $api->setScore($player, "sidebar", "§dPing値 §f>> ".$ping, 3 , 3);
+            $api->setScore($player, "sidebar", "§cアイテムID §f>> ".$id.":".$damage, 4 , 4);
         }
     }
 }
