@@ -4,6 +4,7 @@ namespace xtakumatutix\ticktack\event\Player;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\Player;
 
 class DeathEvent implements Listener
 {
