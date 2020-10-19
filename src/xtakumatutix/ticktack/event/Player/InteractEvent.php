@@ -4,7 +4,9 @@ namespace xtakumatutix\ticktack\event\Player;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
+use pocketmine\item\Item;
 use pocketmine\item\Tool;
+use pocketmine\Player;
 use pocketmine\utils\Config;
 use xtakumatutix\ticktack\API;
 use xtakumatutix\ticktack\Core;
@@ -17,14 +19,20 @@ class InteractEvent implements Listener
     {
         $this->core = $core;
     }
+
     public function ontap(PlayerInteractEvent $event)
     {
         $player = $event->getPlayer();
         $item = $player->getInventory()->getItemInHand();
-        if ($item instanceof Tool){
-            if ($player->isSneaking() === true){
+        $this->onmodechange($player, $item);
+    }
+
+    public function onmodechange(Player $player, Item $item)
+    {
+        if ($item instanceof Tool) {
+            if ($player->isSneaking() === true) {
                 $config = $this->core->mode;
-                if (!$config->exists($player->getName())){
+                if (!$config->exists($player->getName())) {
                     $player->sendMessage('§6Mode §f>> 資源モード');
                     $player->sendMessage('§a--------------------');
                     $player->sendMessage('§fアイテムがドロップするよ！');
@@ -34,7 +42,7 @@ class InteractEvent implements Listener
                     $config->set($player->getName());
                     $config->save();
                     return true;
-                }else{
+                } else {
                     $player->sendMessage('§6Mode §f>> 収入モード');
                     $player->sendMessage('§e--------------------');
                     $player->sendMessage('§fランダム金額で収入が入ります');
@@ -47,5 +55,10 @@ class InteractEvent implements Listener
                 }
             }
         }
+    }
+
+    public function Anvil(Player $player, Item $item)
+    {
+        //TODO
     }
 }
