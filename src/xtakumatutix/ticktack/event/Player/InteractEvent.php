@@ -2,6 +2,7 @@
 
 namespace xtakumatutix\ticktack\event\Player;
 
+use pocketmine\block\Anvil;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\item\Item;
@@ -59,6 +60,12 @@ class InteractEvent implements Listener
 
     public function Anvil(Player $player, Item $item)
     {
-        //TODO
+        if ($item instanceof Anvil) {
+            if ($player->isSneaking() == true) {
+                //Anvilフォームを送る処理
+            }else{
+                $player->sendTip('§bINFO §f>> スニークすると金床メニューを開きます');
+            }
+        }
     }
 }
