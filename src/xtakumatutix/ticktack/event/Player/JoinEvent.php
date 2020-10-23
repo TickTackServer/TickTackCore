@@ -15,7 +15,6 @@ class JoinEvent implements Listener
         $name = $player->getName();
         $player->sendMessage('§bINFO §f>> §a現在β段階です');
         $player->sendTitle('TickTack Server!', 'Version >> β');
-        $this->setScore($player);
         API::getInstance()->sendSound($player, 'block.bamboo.hit');
         if ($player->isOp()) {
             $event->setJoinMessage('§6JOIN §f>> §aOPの' . $name . 'が参加しました');
