@@ -8,7 +8,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\item\Item;
 
-class shopCommand extends Command
+class bisCommand extends Command
 {
     public function __construct()
     {
