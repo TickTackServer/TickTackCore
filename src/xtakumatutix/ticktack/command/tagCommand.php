@@ -23,7 +23,7 @@ class tagCommand extends Command
                 $count = $length - $section * 2;
                 if ($count < 16) {
                     $sender->sendMessage('§bINFO §f>> 称号を"' . $args[0] . '"にしました');
-                    $sender->setDisplayName("§b§r" . $data[0] . "§r§b§r " . $name);
+                    $sender->setDisplayName($args[0] . ' ' . $name);
                 } else {
                     $sender->sendMessage('§cINFO §f>> 15字以内にしてください');
                 }
