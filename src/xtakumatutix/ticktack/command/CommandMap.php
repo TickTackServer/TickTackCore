@@ -14,5 +14,6 @@ class CommandMap
         Server::getInstance()->getCommandMap()->register(self::plugin,new shopCommand());
         Server::getInstance()->getCommandMap()->register(self::plugin,new coreCommand());
         Server::getInstance()->getCommandMap()->register(self::plugin,new bisCommand());
+        Server::getInstance()->getCommandMap()->register(self::plugin,new tagCommand());
     }
 }
