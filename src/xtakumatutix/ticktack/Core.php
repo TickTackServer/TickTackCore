@@ -32,9 +32,10 @@ class Core extends PluginBase
         }
         date_default_timezone_set('Asia/Tokyo');
         EventManager::registerEvents($this);
-        CommandMap::registerCommands();
+        CommandMap::registerCommands($this);
         $this->getScheduler()->scheduleRepeatingTask(new StatusTask($this), 20);
         $this->mode = new Config($this->getDataFolder(). "mode.yml", Config::YAML);
+        $this->tag = new Config($this->getDataFolder(). "tag.yml", Config::YAML);
         Server::getInstance()->getNetWork()->setName('§bTick §bTack§e!!§r');
         $this->getLogger()->notice("
  _______  _        _     _______               _\n
