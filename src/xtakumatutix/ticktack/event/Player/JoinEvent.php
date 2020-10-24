@@ -2,6 +2,7 @@
 
 namespace xtakumatutix\ticktack\event\Player;
 
+use pocketmine\event\Event;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\Player;
@@ -26,6 +27,11 @@ class JoinEvent implements Listener
         $player->sendTitle('TickTack Server!', 'Version >> β');
         API::getInstance()->sendSound($player, 'block.bamboo.hit');
         $this->tag($player);
+        if ($player->hasPlayedBefore() == false){
+            $event->setJoinMessage('§6JOIN §f>> §e' . $name . 'が初参加しました');
+            return;
+        }
+
         if ($player->isOp()) {
             $event->setJoinMessage('§6JOIN §f>> §aOPの' . $name . 'が参加しました');
         } else {
