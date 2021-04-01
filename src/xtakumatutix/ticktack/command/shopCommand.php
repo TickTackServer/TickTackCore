@@ -20,11 +20,8 @@ class shopCommand extends Command
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-        $inv = new DoubleChestInventory();
-        $items = [0 => Item::get(1,0,1), 1 => Item::get(2,0,1), 2 => Item::get(3,0,1), 3 => Item::get(4,0,1), 4 => Item::get(5,0,1)];
-        $inv->setTitle('Shop');
-        $inv->setContents($items);
-        $sender->addWindow($inv);
+        $sender->sendMessage("実装予定です");
+        //TODO formかインベントリで購入できるようにしたい
         return true;
     }
 }
