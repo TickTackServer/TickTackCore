@@ -38,12 +38,12 @@ class Core extends PluginBase
         $this->tag = new Config($this->getDataFolder(). "tag.yml", Config::YAML);
         Server::getInstance()->getNetWork()->setName('§bTick §bTack§e!!§r');
         $this->getLogger()->notice("
- _______  _        _     _______               _\n
-|__   __|(_)      | |   |__   __|             | |\n
-   | |    _   ___ | | __   | |     __ _   ___ | | __\n
-   | |   | | / __|| |/ /   | |    / _` | / __|| |/ /\n
-   | |   | || (__ |   <    | |   | (_| || (__ |   <\n
-   |_|   |_| \___||_|\_\   |_|    \__,_| \___||_|\_\nHelloWorld...
+ _______  _        _     _______               _
+|__   __|(_)      | |   |__   __|             | |
+   | |    _   ___ | | __   | |     __ _   ___ | | __
+   | |   | | / __|| |/ /   | |    / _` | / __|| |/ /
+   | |   | || (__ |   <    | |   | (_| || (__ |   <
+   |_|   |_| \___||_|\_\   |_|    \__,_| \___||_|\_\HelloWorld...
    ");
     }
 }
