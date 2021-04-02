@@ -15,7 +15,7 @@ class statusCommand extends Command
 
     public function __construct(Core $core)
     {
-        parent::__construct("tag", "称号", "/tag (付けたい称号)");
+        parent::__construct("status", "ステータスを確認します", "/status");
         $this->core = $core;
     }
 
