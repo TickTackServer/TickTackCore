@@ -11,12 +11,10 @@ use xtakumatutix\ticktack\form\StatusForm;
 
 class statusCommand extends Command
 {
-    private $core;
-
-    public function __construct(Core $core)
+    
+    public function __construct()
     {
         parent::__construct("status", "ステータスを確認します", "/status");
-        $this->core = $core;
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
