@@ -9,7 +9,7 @@ use pocketmine\utils\Config;
 use xtakumatutix\ticktack\Core;
 use xtakumatutix\ticktack\form\StatusForm;
 
-class tagCommand extends Command
+class statusCommand extends Command
 {
     private $core;
 
