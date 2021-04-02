@@ -9,12 +9,12 @@ use pocketmine\utils\Config;
 use xtakumatutix\ticktack\Core;
 use xtakumatutix\ticktack\form\StatusForm;
 
-class statusCommand extends Command
+class stCommand extends Command
 {
-    
+
     public function __construct()
     {
-        parent::__construct("status", "ステータスを確認します", "/status");
+        parent::__construct("st", "ステータスを確認します", "/st");
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
