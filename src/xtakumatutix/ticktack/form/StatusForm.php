@@ -22,7 +22,7 @@ class StatusForm implements Form
             'content' => [
                 [
                     'type' => 'label',
-                    'text' => '今あなたのステータスは'//todo
+                    'text' => '未実装'//todo
                 ]
             ]
         ];
