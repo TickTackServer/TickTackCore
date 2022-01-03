@@ -25,9 +25,9 @@ class BreakEvent implements Listener
         if (!$config->exists($player->getName())){
             if (!$event->isCancelled()){
                 $event->setDrops([]);
-                $money = mt_rand(1, 50);
+                $money = mt_rand(1, 10);
                 EconomyAPI::getInstance()->addMoney($player,$money);
-                $player->sendTip('§eMoney §f>> '.$money.'円 収入が入りました');
+                $player->sendTip('§e'.$money.'円 GET!!');
             }
 
         }
