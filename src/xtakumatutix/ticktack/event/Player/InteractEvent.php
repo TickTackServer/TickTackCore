@@ -62,7 +62,7 @@ class InteractEvent implements Listener
     {
         if ($item instanceof Anvil) {
             if ($player->isSneaking() == true) {
-                $player->sendMessage("未実装です！！")
+                $player->sendMessage("未実装です！！");
             }else{
                 $player->sendTip('§bINFO §f>> スニークすると金床メニューを開きます');
             }
