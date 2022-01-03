@@ -23,6 +23,6 @@ class QuitEvent implements Listener
     {
         $player = $event->getPlayer();
         $name = $player->getName();
-        $event->setQuitMessage('§7Quit §f>> §e' . $name . 'が退出しました...');
+        $event->setQuitMessage('§7Quit §f>> §7' . $name . 'が退出しました...');
     }
 }
