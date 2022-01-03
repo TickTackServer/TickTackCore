@@ -8,6 +8,7 @@ use xtakumatutix\ticktack\Core;
 use xtakumatutix\ticktack\event\Block\BreakEvent;
 
 use xtakumatutix\ticktack\event\Player\JoinEvent;
+use xtakumatutix\ticktack\event\Player\QuitEvent;
 use xtakumatutix\ticktack\event\Player\DeathEvent;
 use xtakumatutix\ticktack\event\Player\InteractEvent;
 
@@ -20,6 +21,7 @@ class EventManager
     {
         Server::getInstance()->getPluginManager()->registerEvents(new BreakEvent($core),$core);
         Server::getInstance()->getPluginManager()->registerEvents(new JoinEvent($core),$core);
+        Server::getInstance()->getPluginManager()->registerEvents(new QuitEvent($core),$core);
         Server::getInstance()->getPluginManager()->registerEvents(new DeathEvent(),$core);
         Server::getInstance()->getPluginManager()->registerEvents(new InteractEvent($core),$core);
         Server::getInstance()->getPluginManager()->registerEvents(new DamageEvent(),$core);
