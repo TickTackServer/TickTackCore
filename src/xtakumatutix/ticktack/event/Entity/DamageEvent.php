@@ -13,7 +13,7 @@ class DamageEvent implements Listener
     {
         $cause = $event->getCause();
         if ($cause == 4) {
-            $event->setCancelled();
+            $event->cancel();
         }
     }
 
