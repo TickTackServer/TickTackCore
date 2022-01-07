@@ -12,7 +12,7 @@ use xtakumatutix\ticktack\task\StatusTask;
 
 class Core extends PluginBase
 {
-    public function onEnable()
+    public function onEnable(): void
     {
         if ($this->getServer()->getPluginManager()->getPlugin("EconomyAPI") == null){
             $this->getLogger()->warning("EconomyAPIを導入してください。TickTackCoreを停止致します。");
