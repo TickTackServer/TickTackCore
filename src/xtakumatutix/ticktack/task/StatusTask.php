@@ -16,13 +16,13 @@ class StatusTask extends Task{
     public function onRun(): void{
         foreach (Server::getInstance()->getOnlinePlayers() as $player){
             $time = date("m月d日 G時i分");
-            $x = $player->getFloorX();
-            $y = $player->getFloorY();
-            $z = $player->getFloorZ();
-            $level = $player->getLevel()->getFolderName();
+            $x = $player->getPosition()->getFloorX();
+            $y = $player->getPosition()->getFloorY();
+            $z = $player->getPosition()->getFloorZ();
+            $level = $player->getWorld()->getFolderName();
             $money = EconomyAPI::getInstance()->myMoney($player);
             $item = $player->getInventory()->getItemInHand();
-            $id = $item->getId();
+            $id = $item->getMeta();
             $damage = $item->getDamage();
             $ping = $player->getPing();
 
