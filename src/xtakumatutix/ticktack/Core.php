@@ -2,7 +2,6 @@
 
 namespace xtakumatutix\ticktack;
 
-use korado531m7\InventoryMenuAPI\InventoryMenu;
 use onebone\economyapi\EconomyAPI;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
@@ -20,16 +19,6 @@ class Core extends PluginBase
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return true;
         }
-        if ($this->getServer()->getPluginManager()->getPlugin("EasyScoreboardAPI") == null){
-            $this->getLogger()->warning("EasyScoreboardAPIを導入してください。TickTackCoreを停止致します。");
-            $this->getServer()->getPluginManager()->disablePlugin($this);
-            return true;
-        }
-        if ($this->getServer()->getPluginManager()->getPlugin("InventoryMenuAPI") == null){
-            $this->getLogger()->warning("InventoryMenuAPIを導入してください。TickTackCoreを停止致します。");
-            $this->getServer()->getPluginManager()->disablePlugin($this);
-            return true;
-        }
         date_default_timezone_set('Asia/Tokyo');
         EventManager::registerEvents($this);
         CommandMap::registerCommands($this);
@@ -43,7 +32,7 @@ class Core extends PluginBase
    | |    _   ___ | | __   | |     __ _   ___ | | __
    | |   | | / __|| |/ /   | |    / _` | / __|| |/ /
    | |   | || (__ |   <    | |   | (_| || (__ |   <
-   |_|   |_| \___||_|\_\   |_|    \__,_| \___||_|\_\HelloWorld...
+   |_|   |_| \___||_|\_\   |_|    \__,_| \___||_|\_\PM4TEST...
    ");
     }
 }
