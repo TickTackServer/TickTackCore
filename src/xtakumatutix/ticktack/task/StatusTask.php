@@ -13,7 +13,7 @@ use xtakumatutix\ticktack\Core;
 
 class StatusTask extends Task{
 
-    public function onRun(int $tick){
+    public function onRun(): void{
         foreach (Server::getInstance()->getOnlinePlayers() as $player){
             $time = date("m月d日 G時i分");
             $x = $player->getFloorX();
