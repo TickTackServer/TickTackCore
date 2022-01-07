@@ -25,14 +25,13 @@ class StatusTask extends Task{
             $id = $item->getId();
             $damage = $item->getDamage();
             $ping = $player->getPing();
-            $api = EasyScoreboardAPI::getInstance();
 
-            $api->sendScoreBoard($player, "sidebar", "TickTack!!", false);
-            $api->setScore($player, "sidebar", "§b今日は、§f" . $time . "§bです", 0, 0);
-            $api->setScore($player, "sidebar", "§a座標 §f>> " . $x . "," . $y . "," . $z . " " . $level, 1, 1);
-            $api->setScore($player, "sidebar", "§e所持金 §f>> " . $money . "§e円", 2, 2);
-            $api->setScore($player, "sidebar", "§dPing値 §f>> " . $ping, 3, 3);
-            $api->setScore($player, "sidebar", "§cアイテムID §f>> " . $id . ":" . $damage, 4, 4);
+            $player->setupData($player, "sidebar", "TickTack!!", false);
+            $player->sendData($player, "sidebar", "§b今日は、§f" . $time . "§bです", 1);
+            $player->sendData($player, "sidebar", "§a座標 §f>> " . $x . "," . $y . "," . $z . " " . $level, 2);
+            $player->sendData($player, "sidebar", "§e所持金 §f>> " . $money . "§e円", 3);
+            $player->sendData($player, "sidebar", "§dPing値 §f>> " . $ping, 4);
+            $player->sendData($player, "sidebar", "§cアイテムID §f>> " . $id . ":" . $damage, 5);
         }
     }
     
