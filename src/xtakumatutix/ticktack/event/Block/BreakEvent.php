@@ -7,7 +7,7 @@ use pocketmine\event\Listener;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\item\Tool;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use xtakumatutix\ticktack\Core;
 
 class BreakEvent implements Listener

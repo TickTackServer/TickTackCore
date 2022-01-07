@@ -5,7 +5,7 @@ namespace xtakumatutix\ticktack\event\Player;
 use pocketmine\event\Event;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use xtakumatutix\ticktack\API;
 use xtakumatutix\ticktack\Core;
 use pocketmine\utils\Config;

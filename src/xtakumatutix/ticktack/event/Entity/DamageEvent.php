@@ -5,7 +5,7 @@ namespace xtakumatutix\ticktack\event\Entity;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 class DamageEvent implements Listener
 {

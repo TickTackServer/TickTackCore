@@ -7,7 +7,7 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\item\Item;
 use pocketmine\item\Tool;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\utils\Config;
 use xtakumatutix\ticktack\API;
 use xtakumatutix\ticktack\Core;

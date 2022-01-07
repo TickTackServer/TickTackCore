@@ -3,7 +3,7 @@
 namespace xtakumatutix\ticktack\form;
 
 use pocketmine\form\Form;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 class StatusForm implements Form
 {
