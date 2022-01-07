@@ -9,7 +9,7 @@ use pocketmine\item\Item;
 use pocketmine\item\Tool;
 use pocketmine\player\Player;
 use pocketmine\utils\Config;
-use xtakumatutix\ticktack\API;
+//use xtakumatutix\ticktack\API;
 use xtakumatutix\ticktack\Core;
 
 class InteractEvent implements Listener
@@ -39,7 +39,7 @@ class InteractEvent implements Listener
                     $player->sendMessage('§fアイテムがドロップするよ！');
                     $player->sendMessage('§f収入はありません');
                     $player->sendMessage('§a--------------------');
-                    API::getInstance()->sendSound($player, "random.click");
+                    //API::getInstance()->sendSound($player, "random.click");
                     $config->set($player->getName());
                     $config->save();
                     return true;
@@ -49,7 +49,7 @@ class InteractEvent implements Listener
                     $player->sendMessage('§fランダム金額で収入が入ります');
                     $player->sendMessage('§fアイテムは手に入りません。');
                     $player->sendMessage('§e--------------------');
-                    API::getInstance()->sendSound($player, "random.click");
+                    //API::getInstance()->sendSound($player, "random.click");
                     $config->remove($player->getName());
                     $config->save();
                     return true;

@@ -8,7 +8,6 @@ use pocketmine\Server;
 use pocketmine\utils\Config;
 use xtakumatutix\ticktack\command\CommandMap;
 use xtakumatutix\ticktack\event\EventManager;
-use xtakumatutix\ticktack\task\StatusTask;
 
 class Core extends PluginBase
 {
@@ -17,7 +16,6 @@ class Core extends PluginBase
         date_default_timezone_set('Asia/Tokyo');
         EventManager::registerEvents($this);
         CommandMap::registerCommands($this);
-        $this->getScheduler()->scheduleRepeatingTask(new StatusTask($this), 20);
         $this->mode = new Config($this->getDataFolder(). "mode.yml", Config::YAML);
         $this->tag = new Config($this->getDataFolder(). "tag.yml", Config::YAML);
         Server::getInstance()->getNetWork()->setName('§bTick §bTack§e!!§r');

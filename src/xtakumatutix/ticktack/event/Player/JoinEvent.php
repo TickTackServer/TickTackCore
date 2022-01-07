@@ -6,7 +6,7 @@ use pocketmine\event\Event;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\player\Player;
-use xtakumatutix\ticktack\API;
+//use xtakumatutix\ticktack\API;
 use xtakumatutix\ticktack\Core;
 use pocketmine\utils\Config;
 use pocketmine\Server;
@@ -26,9 +26,10 @@ class JoinEvent implements Listener
         $name = $player->getName();
         $player->sendMessage('§bINFO §f>> §a現在β段階です');
         $player->sendTitle('TickTack Server!', 'Version >> β');
-        API::getInstance()->sendSound($player, 'block.bamboo.hit');
+        //API::getInstance()->sendSound($player, 'block.bamboo.hit');
         $this->tag($player);
-        if ($player->hasPlayedBefore() == false){
+        $event->setJoinMessage('§6JOIN §f>> §e' . $name . 'が参加しました');
+        /*if ($player->hasPlayedBefore() == false){
             $event->setJoinMessage('§6JOIN §f>> §e' . $name . 'が初参加しました');
             return;
         }
@@ -37,7 +38,7 @@ class JoinEvent implements Listener
             $event->setJoinMessage('§6JOIN §f>> §aOPの' . $name . 'が参加しました');
         } else {
             $event->setJoinMessage('§6JOIN §f>> §f' . $name . 'が参加しました');
-        }
+        }*/
     }
 
     public function tag(Player $player){

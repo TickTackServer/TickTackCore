@@ -17,30 +17,34 @@ use xtakumatutix\ticktack\Core;
 
 class StatusTask extends Task{
 
-    public function onRun(): void{
-        foreach (Server::getInstance()->getOnlinePlayers() as $player){
-            $time = date("m月d日 G時i分");
-            $x = $player->getPosition()->getFloorX();
-            $y = $player->getPosition()->getFloorY();
-            $z = $player->getPosition()->getFloorZ();
-            $level = $player->getWorld()->getFolderName();
-            $money = EconomyAPI::getInstance()->myMoney($player);
-            $item = $player->getInventory()->getItemInHand();
-            $id = $item->getMeta();
-            $damage = $item->getDamage();
-            $ping = $player->getNetworkSession()->getPing();
+  private Player $player;
 
-            $player->setupData($player, "sidebar", "TickTack!!", false);
-            $player->sendData($player, "sidebar", "§b今日は、§f" . $time . "§bです", 1);
-            $player->sendData($player, "sidebar", "§a座標 §f>> " . $x . "," . $y . "," . $z . " " . $level, 2);
-            $player->sendData($player, "sidebar", "§e所持金 §f>> " . $money . "§e円", 3);
-            $player->sendData($player, "sidebar", "§dPing値 §f>> " . $ping, 4);
-            $player->sendData($player, "sidebar", "§cアイテムID §f>> " . $id . ":" . $damage, 5);
-        }
+  public function __construct(Player $player) {
+    $this->player = $player;
+  }
+
+    public function onRun(): void{
+        $player = $this->player;
+        $time = date("m月d日 G時i分");
+        $x = $player->getPosition()->getFloorX();
+        $y = $player->getPosition()->getFloorY();
+        $z = $player->getPosition()->getFloorZ();
+        $level = $player->getWorld()->getFolderName();
+        $money = EconomyAPI::getInstance()->myMoney($player);
+        $item = $player->getInventory()->getItemInHand();
+        $id = $item->getMeta();
+        $damage = $item->getDamage();
+        $ping = $player->getNetworkSession()->getPing();
+
+        $player->setupData($player, "sidebar", "TickTack!!", false);
+        $player->sendData($player, "sidebar", "§b今日は、§f" . $time . "§bです", 1);
+        $player->sendData($player, "sidebar", "§a座標 §f>> " . $x . "," . $y . "," . $z . " " . $level, 2);
+        $player->sendData($player, "sidebar", "§e所持金 §f>> " . $money . "§e円", 3);
+        $player->sendData($player, "sidebar", "§dPing値 §f>> " . $ping, 4);
+        $player->sendData($player, "sidebar", "§cアイテムID §f>> " . $id . ":" . $damage, 5);
     }
     
     private function setupData(Player $player) {
-        foreach (Server::getInstance()->getOnlinePlayers() as $player){
     $pk = new SetDisplayObjectivePacket();
     $pk->displaySlot = "sidebar";
     $pk->objectiveName = "sidebar";
@@ -48,11 +52,9 @@ class StatusTask extends Task{
     $pk->criteriaName = "dummy";
     $pk->sortOrder = 0;
     $player->getNetworkSession()->sendDataPacket($pk);
-}
   }
 
   private function sendData(Player $player, string $data, int $id) {
-    foreach (Server::getInstance()->getOnlinePlayers() as $player){
     $entry = new ScorePacketEntry();
     $entry->objectiveName = "sidebar";
     $entry->type = $entry::TYPE_FAKE_PLAYER;
@@ -63,7 +65,6 @@ class StatusTask extends Task{
     $pk->type = $pk::TYPE_CHANGE;
     $pk->entries[] = $entry;
     $player->getNetworkSession()->sendDataPacket($pk);
-}
   }
 }
 
