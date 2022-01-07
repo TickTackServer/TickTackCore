@@ -9,6 +9,7 @@ use pocketmine\player\Player;
 use xtakumatutix\ticktack\API;
 use xtakumatutix\ticktack\Core;
 use pocketmine\utils\Config;
+use pocketmine\Server;
 
 class JoinEvent implements Listener
 {
@@ -32,7 +33,7 @@ class JoinEvent implements Listener
             return;
         }
 
-        if ($player->isOp()) {
+        if (Server::getInstance()->getServer()->isOp($name)) {
             $event->setJoinMessage('§6JOIN §f>> §aOPの' . $name . 'が参加しました');
         } else {
             $event->setJoinMessage('§6JOIN §f>> §f' . $name . 'が参加しました');

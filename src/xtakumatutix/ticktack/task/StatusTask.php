@@ -8,6 +8,10 @@ use onebone\economyapi\EconomyAPI
 use pocketmine\scheduler\Task;
 use pocketmine\Server;
 use pocketmine\player\Player;
+use pocketmine\network\mcpe\NetworkSession;
+
+use pocketmine\network\mcpe\protocol\{RemoveObjectivePacket, SetDisplayObjectivePacket, SetScorePacket};
+use pocketmine\network\mcpe\protocol\types\ScorePacketEntry;
 
 use xtakumatutix\ticktack\Core;
 
@@ -24,7 +28,7 @@ class StatusTask extends Task{
             $item = $player->getInventory()->getItemInHand();
             $id = $item->getMeta();
             $damage = $item->getDamage();
-            $ping = $player->getPing();
+            $ping = $player->getNetworkSession()->getPing();
 
             $player->setupData($player, "sidebar", "TickTack!!", false);
             $player->sendData($player, "sidebar", "§b今日は、§f" . $time . "§bです", 1);
@@ -36,6 +40,7 @@ class StatusTask extends Task{
     }
     
     private function setupData(Player $player) {
+        foreach (Server::getInstance()->getOnlinePlayers() as $player){
     $pk = new SetDisplayObjectivePacket();
     $pk->displaySlot = "sidebar";
     $pk->objectiveName = "sidebar";
@@ -43,9 +48,11 @@ class StatusTask extends Task{
     $pk->criteriaName = "dummy";
     $pk->sortOrder = 0;
     $player->getNetworkSession()->sendDataPacket($pk);
+}
   }
 
   private function sendData(Player $player, string $data, int $id) {
+    foreach (Server::getInstance()->getOnlinePlayers() as $player){
     $entry = new ScorePacketEntry();
     $entry->objectiveName = "sidebar";
     $entry->type = $entry::TYPE_FAKE_PLAYER;
@@ -56,6 +63,7 @@ class StatusTask extends Task{
     $pk->type = $pk::TYPE_CHANGE;
     $pk->entries[] = $entry;
     $player->getNetworkSession()->sendDataPacket($pk);
+}
   }
 }
 
