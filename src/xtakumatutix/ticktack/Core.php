@@ -14,11 +14,6 @@ class Core extends PluginBase
 {
     public function onEnable(): void
     {
-        if ($this->getServer()->getPluginManager()->getPlugin("EconomyAPI") == null){
-            $this->getLogger()->warning("EconomyAPIを導入してください。TickTackCoreを停止致します。");
-            $this->getServer()->getPluginManager()->disablePlugin($this);
-            return true;
-        }
         date_default_timezone_set('Asia/Tokyo');
         EventManager::registerEvents($this);
         CommandMap::registerCommands($this);
