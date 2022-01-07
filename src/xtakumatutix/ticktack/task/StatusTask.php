@@ -1,11 +1,14 @@
 <?php
+// https://github.com/yurisi0212/PlayerInfoScoreBoard/blob/master/src/space/yurisi/Task/SendTask.php を参考にしました。
 
 namespace xtakumatutix\ticktack\task;
 
-use onebone\economyapi\EconomyAPI;
+use onebone\economyapi\EconomyAPI
+;
 use pocketmine\scheduler\Task;
 use pocketmine\Server;
-use Saisana299\easyscoreboardapi\EasyScoreboardAPI;
+use pocketmine\player\Player;
+
 use xtakumatutix\ticktack\Core;
 
 class StatusTask extends Task{
@@ -32,5 +35,28 @@ class StatusTask extends Task{
             $api->setScore($player, "sidebar", "§cアイテムID §f>> " . $id . ":" . $damage, 4, 4);
         }
     }
+    
+    private function setupData(Player $player) {
+    $pk = new SetDisplayObjectivePacket();
+    $pk->displaySlot = "sidebar";
+    $pk->objectiveName = "sidebar";
+    $pk->displayName = "TickTack!!";
+    $pk->criteriaName = "dummy";
+    $pk->sortOrder = 0;
+    $player->getNetworkSession()->sendDataPacket($pk);
+  }
+
+  private function sendData(Player $player, string $data, int $id) {
+    $entry = new ScorePacketEntry();
+    $entry->objectiveName = "sidebar";
+    $entry->type = $entry::TYPE_FAKE_PLAYER;
+    $entry->customName = $data;
+    $entry->score = $id;
+    $entry->scoreboardId = $id + 11;
+    $pk = new SetScorePacket();
+    $pk->type = $pk::TYPE_CHANGE;
+    $pk->entries[] = $entry;
+    $player->getNetworkSession()->sendDataPacket($pk);
+  }
 }
 
